@@ -30,8 +30,8 @@ export default function useScrollToBottom(
     const { scrollTop, scrollHeight, clientHeight } = containerRef.current as any;
     const isScrolledBottom = scrollHeight - scrollTop - 150 > clientHeight;
 
-    if (isScrolledBottom) callback(true);
-    else callback(false);
+    if (isScrolledBottom) callback();
+    else void(0);
   };
 
   return { containerRef, lastMessageRef };
