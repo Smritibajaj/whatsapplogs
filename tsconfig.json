@@ -14,7 +14,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
+    "baseUrl": ".",
+    "paths": {
+      "@app/*": ["./src/app/*", "./dist/*", ""]
+    },
     /* Linting */
     "strict": true,
     "noUnusedLocals": false,
@@ -23,5 +26,5 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src", "src/.d.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

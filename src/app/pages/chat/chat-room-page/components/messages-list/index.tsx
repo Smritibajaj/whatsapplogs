@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -21,14 +22,14 @@ import MessageDialog from "./Dialog";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 
 type MessagesListProps = {
-  onShowBottomIcon: (state: boolean) => void;
+  onShowBottomIcon: any;
   shouldScrollToBottom?: boolean;
   handleScroll: () => void;
 };
 
 export default function MessagesList(props: MessagesListProps) {
   const { onShowBottomIcon, shouldScrollToBottom, handleScroll } = props;
-  const firstMsgRef = useRef(null);
+  const firstMsgRef = useRef<any>(null);
   const params = useParams();
   const [messages, setMessages] = useState<any>([]);
   const [pageNumber, setPageNumber] = useState(1);
@@ -78,8 +79,8 @@ export default function MessagesList(props: MessagesListProps) {
     }
 
     return () => {
-      if (firstMsgRef.current) {
-        observer.unobserve(firstMsgRef.current);
+      if (firstMsgRef && firstMsgRef.current) {
+        observer.unobserve(firstMsgRef?.current);
       }
     };
   }, []);
